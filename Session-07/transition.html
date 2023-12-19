@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn{
+            position: relative;
+            width: 100px;
+            height: 30px;
+            background-color: blanchedalmond;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;   
+            /* 
+                all: áp dụng cho tất cả ác đối tượng.
+                3s: thời gian thực hiện hết hiệu ứng.
+                linear: là tốc độ chuyển động.
+                1s: độ trễ (tức là nó phải chạy hết thời gian trễ mới đến hiệu ứng.)
+                */
+        }
+        .btn::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            transition: all 1s linear;
+            background-color: red;
+        }
+        .btn:hover::before{
+            width: 100%;
+        }
+
+        .btn-1{
+            position: relative;
+            width: 300px;
+            height: 90px;
+            background-color: blanchedalmond;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .btn-1 span:nth-child(1){
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 5px;
+            background-color: brown;
+            transition: all 2s linear;
+        }
+
+        .btn-1:hover span:nth-child(1){
+            width: 100%;
+        }
+
+        .btn-1 span:nth-child(2){
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 5px;
+            height: 0;
+            background-color: brown;
+            transition: all 1s linear 2s;
+        }
+
+        .btn-1:hover span:nth-child(2){
+            height: 100%;
+        }
+
+        .btn-1 span:nth-child(3){
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 5px;
+            background-color: brown;
+            transition: all 1s linear 3s;
+        }
+
+        .btn-1:hover span:nth-child(3){
+            width: 100%;
+        }
+
+        .btn-1 span:nth-child(4){
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 5px;
+            height: 0;
+            background-color: brown;
+            transition: all 1s linear 4s;
+        }
+
+        .btn-1:hover span:nth-child(4){
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        Transition: là hiệu ứng giúp cho việc chuyển động
+         * Được dùng trong những trường hợp:
+            - Thường dùng click, hover vào các nút bấm rồi áp dụng hiệu ứng.
+     -->
+     <button class="btn">
+        login
+     </button>
+     <br><br>
+
+     <button class="btn-1">
+        ABCD
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+     </button>
+</body>
+</html>

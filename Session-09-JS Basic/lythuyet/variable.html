@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        I. Variable - biến : là từ khóa dùng để khai báo các kiểu dữ liệu.
+          - 3 từ khóa dùng để khai báo biến : 
+                1. Var:
+                    - Có thể khai báo lại.
+                    - Có thể gán lại giá trị.
+                    - Có hoisting.
+                    - Phạm vi hoạt động function.
+                2. Let:
+                    - Không thể khai báo lại
+                    - Có thể gán lại giá trị.
+                    - Phạm vi hoạt động Block - scope.
+                    - Có hoisting nhưng khoog truy cập được.
+                3. Const: 
+                    - Không thể khai báo và gán lại được.
+                    - Phạm vi hoạt động Block - scope.
+                    - Có hoisting nhưng khoog truy cập được.
+                    - Thường dùng để khai báo hằng số.
+                    - Khi khai báo bắt buộc phải gán gúa trị cho nó.
+            - Tên biến có phân biệt chữ hoa, chữ thường.
+            - Đặt tên theo quy tắc Came1-case : chữ cái của từ đầu tiên viết thường, các chữ cái đầu của các từ tiếp theo viết hoa.
+            - Không được bắt đầu bằng số, chữ cái đặc biệt ( trừ $ và _ ).
+            - Tránh đặt tên trùng từ khóa đặc biệt trong js ( class, let, var, const, try, catch ...)
+        
+        
+     -->
+     <script>
+        var fullName ="chu tuấn anh"; // fullName là tên biến. = gán giá trị, không phải phép so sánh, chu tuấn anh : là giá trị của biến.
+        var fullName ="tuấn anh"; // khai báo lại.
+            fullName ="anh anh"; // gán lại.
+        var check; // Khai báo nhưng chưa gán giá trị.
+        let age=112;
+            age=442;
+        console.log(fullName);
+        console.log(age);
+        const number=5;
+        const PI=3.14;
+        console.log(number);
+
+     </script>
+</body>
+</html>

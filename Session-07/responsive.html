@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header{
+            width: 100%;
+            height: 100px;
+            background-color: red;
+        }
+        @media only screen and (max-width: 900px){
+            .header{
+                background-color: green;
+            }
+        }
+        @media only screen and (max-width: 600px){
+            .header{
+                background-color: yellow;
+            }
+        }
+            /*  Trên máy tính thì dùng max-width, giá trị từ to xuống đến bé
+                Trên điện thoại thì dùng min-width, giá tri từ thấp lên cao. */
+    </style>
+</head>
+<body>
+    <!-- 
+            Responsive: là sự tương thích giữa các trình duyệt.
+                - Thiết kế - 2 loại:
+                    1. Desktop first: Viết trên máy tính trước
+                    2. Mobile first: viết trên điện thoại trước.
+     -->
+     <div class="header">
+        Header
+     </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        V. Toán tử trong JS:
+            1. Toán tử số học:
+                cộng : +
+                trừ : -
+                nhân : * 
+                chia : /
+                chia lấy dư : %
+                lũy thừa : **
+            2. Toán tử logic:
+                or - hoặc : ||  ( 1 trong các trường hợp thỏa mãn là được) : nó sẽ lấy trusthy đầu tiên, nếu ko có lấy cuối cùng.
+                end - và : && ( đồng thời các trường hợp phải thỏa mãn) : nó sẽ lấy falsy đầu tiên, nếu ko có lấy cuối cùng.
+
+                - Trusthy: không phải falsy
+                - falsy: false, 0 , NaN , undefined, null, "" , ''
+            3. Toán tử so sánh: 
+                == : so sánh giá trị.
+                === : so sánh giá trị và kiểu dữ liệu.
+                > , < , >= , <= , != 
+                !== : 
+            4. Toán tử tăng giảm: ++ , -- 
+     -->
+     <script>
+        let result="8"-4; // khi dấu trừ sẽ ép kiểu dữ liệu trong ngoặc sang kiểu number, nếu ko ép được sẽ chuyển sang NaN.
+        let abc="h"+4+3+2; // khi là dấu + thì sẽ ép kiểu dữ liệu sang kiểu string, string + number = string.
+        let nhan=4*16;
+        let chia=3%15; // nếu số bị chia nhỏ hơn số chia thì sẽ lấy số bị chia.
+        let mu=2**7;
+        console.log(result);
+        console.log(abc);
+        console.log(nhan);
+        console.log(chia);
+        console.log(mu);
+        console.log(3>2 || 1>2); //trả về true do có 1 điều kiện thỏa mãn.
+        console.log(3>5 || 1>2); // trả về là thằng cuối cùng
+        console.log(5 || 2);
+        console.log(1||2&&3); //trong phép toán có cả || và && thì sẽ ưu tiên && trước, rồi mới đến ||  ==>> kết quả ra 1
+        let a=5;
+        let b="5";
+        console.log(a==b); // trả về true, ép kiểu về number. phép == chỉ so sánh giá trị.
+        console.log(a===b); // trả về false, vì a là number, b là string. phép === so sánh cả kiểu dữ liệu.
+        console.log(a!=b); // so sánh giá trị , trả về false
+        console.log(a!==b); // so sánh giá trị or kiểu dữ liệu , trả về true.
+        let count=1;
+        // count++;// hậu tố, nên sẽ tăng sau.
+        // ++count; // tiền tố, nên sẽ tăng trước.
+        // console.log(count++); // ra 1
+        // console.log(++count); // ra 2
+     </script>
+</body>
+</html>

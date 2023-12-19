@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .circle{
+            width: 200px;
+            height: 200px;
+            border: 5px solid red;
+            border-radius: 50%;
+            border-left: 3px solid green;
+            border-right: 3px solid green;
+            animation: circle1 0.7s infinite linear;
+        }
+        @keyframes circle1{
+            0%{
+                transform: rotate(0);
+            }
+            50%{
+                transform: rotate(180deg);
+            }
+            100%{
+                transform: rotate(360deg);
+
+            }
+        }
+        .transform{
+            margin-left: 50px;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* transform: rotate(30deg); */
+        }
+        .div{
+            margin: 50px;
+            width: 100px;
+            height: 100px;
+            background-color: rgb(213, 119, 119);
+            /* transform: rotate(30deg); */
+        }
+        .div1{
+            transform: translateY(50px);
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+            Animation : hiệu ứng chuyển động.
+                - Thường áp dụng  : loading.
+     -->
+
+     <div class="circle"></div> <br><br>
+     <div class="transform">
+        transform
+     </div>
+
+     <div class="div1 div">
+
+     </div>
+     <div class="div2 div">
+        
+     </div>
+</body>
+</html>
