@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 7</title>
+</head>
+<body>
+    <script>
+        let x=+prompt("mời bạn nhập số:");
+        while(Number.isInteger(x) == false){        // Number.isInteger(x) để kiểm tra x có phải số nguyên hay ko, nếu phải trả về true, ko phải trả về false.
+            x=+prompt("số vừa nhập không phải số nguyên, mời nhập lại:");
+        }
+        if (x>0) {
+            console.log(`${x} là số nguyên dương.`);
+        } else if (x<0) {
+            console.log(`${x} là số nguyên âm.`);
+        } else {
+            console.log("x có giá trị là 0.");
+            
+        }
+    </script>
+</body>
+</html>

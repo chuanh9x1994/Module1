@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 8</title>
+</head>
+<body>
+    <script>
+        let weight=+prompt("mời nhập cân nặng: ");
+        let height=+prompt("mời nhập chiều cao: ");
+        let bmi=(weight/(height**2)).toFixed(1);
+        if (bmi<18.5) {
+            console.log(`BMI = ${bmi} - Gầy.`);
+        } else if (18.5<=bmi && bmi<=24.9) {
+            console.log(`BMI = ${bmi} - Bình thường.`);
+        } else if (25<=bmi && bmi<=29.9) {
+            console.log(`BMI = ${bmi} - Tiền béo phì.`);
+        } else if (30<=bmi && bmi<=34.9) {
+            console.log(`BMI = ${bmi} - Béo phì độ I.`);
+        } else if (35<=bmi && bmi<40) {
+            console.log(`BMI = ${bmi} - Béo phì độ II.`);
+        } else {
+            console.log(`BMI = ${bmi} - Béo phì độ III.`);
+        }
+    </script>
+</body>
+</html>

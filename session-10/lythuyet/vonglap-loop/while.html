@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+            While: là vòng lặp có thể ko chạy  lần nào hoặc chạy nhiều lần.
+                - cú pháp:
+                    while(điều kiện){thân}
+                - khi dùng vòng lặp nhớ đặt 1 điều kiện dừng, để tránh vòng lặp vô tân.
+                - Cách chạy : kiểm tra đk, nếu thỏa mãn thì chạy phần thân, nếu điều kiện sai  thì dừng chương trình.
+                - thường dùng trong trường hợp ko biết trước số lần lặp.
+     -->
+    <script>
+        // let a=1;
+        // while(a<5){
+        //     console.log("aaa",a);
+        //     a++;
+        //     break; //
+        // }
+
+        let pass=prompt("mời nhập pass:");
+        let count=1;
+        while (pass!="123") {
+            pass=prompt("mời nhập pass:");
+            count++;
+        }
+        console.log("bạn đã nhập số lần: ",count);
+    </script>
+</body>
+</html>

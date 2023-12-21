@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+</head>
+<body>
+    <script>
+        let h=+prompt("mời nhập số giờ trong ngày.");
+        while(h>24){
+            h=+prompt("bạn nhập sai số giờ, mời nhập lại số giờ trong ngày.");
+        }
+        if (h>18) {
+            console.log("Good evening.");
+        } else if(h<18){
+            console.log("Good day.");
+        } else{
+            console.log("Hiện tại là 18h.");
+        }
+    </script>
+</body>
+</html>

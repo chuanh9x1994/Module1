@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 9</title>
+</head>
+<body>
+    <script>
+        let a=+prompt("mời nhập điểm toán:");
+        while(a<0 || a>10 || a==null || a==""){
+            a=+prompt("điểm không hợp lệ. mời nhập lại điểm toán:");
+        }
+
+        let b=+prompt("mời nhập điểm lý:");
+        while(b<0 || b>10 || b==null || b==""){
+            b=+prompt("điểm không hợp lệ. mời nhập lại điểm lý:");
+        }
+
+        let c=+prompt("mời nhập điểm hoá:");
+        while(c<0 || c>10 || c==null || c==""){
+            c=+prompt("điểm không hợp lệ. mời nhập lại điểm hoá:");
+        }
+
+        let d=+prompt("mời nhập điểm văn:");
+        while(d<0 || d>10 || d==null || d==""){
+            d=+prompt("điểm không hợp lệ. mời nhập lại điểm văn:");
+        }
+
+        let e=+prompt("mời nhập điểm sử:");
+        while(e<0 || e>10 || e==null || e==""){
+            e=+prompt("điểm không hợp lệ. mời nhập lại điểm sử:");
+        }
+        let g=+prompt("mời nhập điểm địa:");
+        while(g<0 || g>10 || g==null || g==""){
+            g=+prompt("điểm không hợp lệ. mời nhập lại điểm địa:");
+        }
+        
+        let diemTB=((a+b+c+d+e+g)/6).toFixed(1);
+        if (8.0<=diemTB && diemTB<=10) {
+            console.log(`Điểm TB : ${diemTB} - xếp loai GIỎI.`);
+        } else if (6.5<=diemTB && diemTB<=7.9) {
+            console.log(`Điểm TB : ${diemTB} - xếp loai KHÁ.`);
+        } else if(5.0<=diemTB && diemTB<=6.4){
+            console.log(`Điểm TB : ${diemTB} - xếp loai TRUNG BÌNH.`);
+        }else{
+            console.log(`Điểm TB : ${diemTB} - xếp loai YẾU.`);
+        }
+    </script>
+</body>
+</html>

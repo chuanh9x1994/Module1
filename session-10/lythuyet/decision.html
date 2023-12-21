@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        DECISION : Câu điều kiện.
+            - if : đối với if ( condition ) thỏa mãn thì phần thân if mới được thực thi, 
+                    thỏa mãn nghĩa là : là truthy thì chạy.
+            - if -else : 1 trong 2 cái bắt buộc phải chạy 1 cái.
+            - if-else-if
+            - switch-case
+     -->
+    <script>
+        // let a=7;
+        // if(0){
+        //     console.log(`${a} lớn hơn 5`); // `` - template liternal : có thể truyền biến vào trong string.
+        // }else{
+        //     console.log("chạy vào else."); 
+        // }
+
+        let day = prompt("mời bạn nhập thứ trong tuần:"); //thêm dấu + trước prompt để ép kiểu sang number , hoặc Number đằng trước.
+        // if(day==2){
+        //     console.log("thứ 2");
+        // }else if(day==3){
+        //     console.log("thứ 3");
+        // }else{
+        //     console.log("ko phải thứ 2,3");
+        // }
+
+        // switch (day) {
+        //     case "2":                         // các case kiểm tra bằng === nghĩa là kiểm tra nghiêm ngặt.
+        //         console.log("thứ 2");
+        //         break;                        // break : dừng vòng lặp.
+        //     case "3":
+        //         console.log("thứ 3");
+        //         break;
+        //     case "4":
+        //         console.log("thứ 4");
+        //         break;
+        //     default:
+        //         console.log("ngày ko thỏa mãn"); // default : nếu k có giá trị nào thỏa mãn thì sẽ trả về ở default.
+        //         break;
+        // }
+
+        // VD : cho nhập vào 1 ngày bất kỳ, nếu là 2,4,6 thì in thông báo " ngày đi học ", còn k thì in ra "ngày được nghỉ".
+        let ngay = +prompt("nhập ngày: ")
+        switch (ngay) {
+            case 2:
+            case 4:
+            case 6:
+                console.log("ngày đi học");
+                break;
+            default:
+                console.log("ngày được nghỉ");
+                break;
+        }
+    </script>
+</body>
+
+</html>
