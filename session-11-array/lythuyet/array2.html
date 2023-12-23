@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+            Các phương thức làm việc với chuỗi (text).
+                1. split() : cắt chuỗi thành mảng.
+                2. join() : gộp các phần tử trong mảng thành chuỗi.
+            Các phương thức thêm  để làm việc với mảng.
+                1. reverse() : đảo ngược  các phần tử trong mảng.
+                2. sort() : sắp xếp các phần tử trong mảng theo bảng mã assci
+                3. indexof() : kiểm tra phần tử có trong mảng hay k, nếu có trả về vị trí của phần tử. nếu k có trả về -1
+                4. includes() : kiểm tra phần tử có trong mảng hay k, nếu có trả về true, nếu k có trả về false.
+                5. slice() : sao chép ra 1 mảng mới ko liên quan đến mảng ban đầu.
+     -->
+
+     <script>
+        let text="1234562211";
+        let result=text.split("");
+        let a=result.join("-");
+        console.log(a);
+        let studens=["hoa","hồng","mai","thúy"]
+        studens.reverse();
+        console.log("ádsdasd",studens);
+
+        let studens2=["vân","hoa","hồng","mai","an","thúy"]
+        studens2.sort();
+        console.log("fdsdfs",studens2);
+        let check=studens2.indexOf("hồng");
+        console.log(check);
+        let check2=studens2.includes("mai")
+        console.log(check2);
+
+        let studens3=studens2.slice(2,4);
+        console.log(studens3);
+     </script>
+</body>
+</html>

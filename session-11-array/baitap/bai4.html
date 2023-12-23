@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 4</title>
+</head>
+<body>
+    <script>
+        // array.toUpperCase() : chuyển chữ thường sang chữ HOA.
+        // array.toLowerCase() : chuyển chữ HOA sang chữ thường.
+
+        let a=prompt("mời nhập nội dung: ");
+        let b=a.split("");
+        // console.log(b); // b=['c', 'h', 'u', ' ', 't', 'u', 'a', 'n', ' ', 'a', 'n', 'h']
+        for(let i=0 ; i<b.length ; i++){
+            if (b[i] === b[i].toUpperCase()) {
+                b[i]=b[i].toLowerCase();
+            } else {
+                b[i]=b[i].toUpperCase();
+            }
+        }
+        let c=b.join("");
+        console.log(c);
+    </script>
+</body>
+</html>

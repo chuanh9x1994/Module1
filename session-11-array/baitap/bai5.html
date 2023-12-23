@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 5</title>
+</head>
+<body>
+    <script>
+        let  numbers=[1,5,8,7,9,6,5,41,2,6,55,4,8];
+        for(let i=0 ; i<numbers.length-1 ; i++){
+            let imin=i;
+            for(j=i+1; j<numbers.length ; j++){
+                if (numbers[j] < numbers[imin]) {
+                    imin=j;
+                }
+            }
+            let t=numbers[i];
+            numbers[i]=numbers[imin];
+            numbers[imin]=t;
+        }
+        console.log(numbers);
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3</title>
+</head>
+<body>
+    <script>
+        // Cách 1:
+        let  numbers=[1,5,8,7,9,6,5,41,2,6,55,4,8];
+        for(let i = 0 ; i<numbers.length-1 ; i++){
+            let imin=i;
+            for(let j = i+1 ; j<numbers.length ; j++){
+                if(numbers[j] < numbers[imin]){
+                    imin=j;
+                }
+            }
+            let t=numbers[i];
+            numbers[i]=numbers[imin];
+            numbers[imin]=t;
+        }
+        console.log("mảng sau khi sắp xếp: ", numbers);
+        console.log("phần tử lớn nhất là : ", numbers[numbers.length-1]);
+
+        // Cách 2:
+
+        let a=[1,5,8,7,9,6,5,41,2,6,55,4,8];
+        let max=a[0];
+        for(let i=0; i<a.length ; i++){
+            if (max < a[i]) {
+                max=a[i]
+            }
+        }
+        console.log("số lớn nhất trong mảng là : ", max);
+    </script>
+</body>
+</html>
