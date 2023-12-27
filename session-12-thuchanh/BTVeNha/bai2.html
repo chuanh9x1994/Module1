@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+</head>
+
+<body>
+    <script>
+        let store = ["Laptop", "Keyboard", "Mouse", "PC"];
+        let cart = [["Laptop", 0], ["Keyboard", 0], ["Mouse", 0], ["PC", 0]];
+        while (1) {
+            let text = prompt("Mời nhập chữ cái (C/R/U/D/E) :");
+            if (text == "E") {
+                break;
+            } else {
+                while (text != "C" && text != "R" && text != "U" && text != "D") {
+                    text = prompt("Bạn đã nhập sai, mời nhập lại chữ cái (C/R/U/D/E) :");
+                }
+                switch (text) {
+                    case "C":
+                        let muaSp = prompt("Mời bạn nhập tên SP muốn mua : ");
+                        while (store.indexOf(muaSp) == -1) {
+                            muaSp = prompt("SP bạn nhập ko có, mời bạn nhập lại : ");
+                        }
+                        cart[store.indexOf(muaSp)][1]++;
+                        for (let i = 0; i < cart.length; i++) {
+                            console.log(`SP : ${cart[i][0]} - số lượng : ${cart[i][1]}`);
+                        }
+                        break;
+                    case "R":
+                        for (let i = 0; i < cart.length; i++) {
+                            console.log(`SP : ${cart[i][0]} - số lượng : ${cart[i][1]}`);
+                        }
+                        break;
+                    case "U":
+                        let checkU = confirm("Bạn có muốn update số lượng có trong cart không? ");
+                        if (checkU == false) {
+                            for (let i = 0; i < cart.length; i++) {
+                                console.log(`SP : ${cart[i][0]} - số lượng : ${cart[i][1]}`);
+                            }
+                            break;
+                        } else {
+                            let updateSp = prompt("Mời bạn nhập tên SP muốn cập nhật : ");
+                            while (store.indexOf(updateSp) == -1) {
+                                updateSp = prompt("SP bạn nhập ko có, mời bạn nhập lại : ");
+                            }
+                            let soLuong = prompt("Mời bạn nhập số lượng: ")
+                            cart[store.indexOf(updateSp)][1] = soLuong;
+                            for (let i = 0; i < cart.length; i++) {
+                                console.log(`SP : ${cart[i][0]} - số lượng : ${cart[i][1]}`);
+                            }
+                        }
+                        break;
+                    case "D":
+                        let checkD = confirm("Bạn có muốn xóa SP nào không?");
+                        if (checkD == false) {
+                            for (let i = 0; i < cart.length; i++) {
+                                console.log(`SP : ${cart[i][0]} - số lượng : ${cart[i][1]}`);
+                            }
+                            break;
+                        } else {
+                            let deleteSp = prompt("Mời bạn nhập tên SP muốn xóa : ");
+                            while (store.indexOf(deleteSp) == -1) {
+                                deleteSp = prompt("SP bạn nhập ko có, mời bạn nhập lại : ");
+                            }
+                            cart[store.indexOf(deleteSp)][1] = 0;
+                            for (let i = 0; i < cart.length; i++) {
+                                console.log(`SP : ${cart[i][0]} - số lượng : ${cart[i][1]}`);
+                            }
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
