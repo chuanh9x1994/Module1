@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+            Function : hay gọi là hàm, bao gồm tập hợp các câu lệnh
+                - Thực hiện một chức năng cụ thể.
+                - Hàm có khả năng tái sử dụng: tức là viết 1 lần dùng nhiều lần.
+            I. Các loại hàm và cách khai báo.
+                - Chú ý: tên hàm viết theo quy tắc camel-case, thường bắt đầu = động từ.
+                         muốn hàm thực thi thì phải gọi hàm.
+                1. Declaration : function bình thường: (dùng nhiều)
+                    Có thể gọi hàm sau khi khai báo, hoặc gọi trước khi khai báo.
+                2. Expression function : 
+                    Gán hàm cho 1 biến.
+                    Hàm có thể có tên hoặc k có tên.
+                    Chỉ gọi được sau khi khai báo, ko gọi được trước. phải gọi qua biến, k gọi trực tiếp hàm đc.
+                3. Arrow function: hàm mũi tên.(dùng nhiều)
+                    Gán hàm cho 1 biến.
+                    Gọi sau khi khai báo.
+                4. IIFE : imdemelity invoke function expression.
+
+     -->
+    <script>
+        // khai báo 1 function có tên là sayHello ( dạng Declaration)
+        function sayHello(){ // 
+            console.log("xin chào");
+        }
+        // gọi hàm
+        sayHello();
+
+        // khai báo 1 function  dạng Expression:
+        let result = function(){
+            console.log("thực hiện Expression function");
+        }
+        // gọi hàm
+        result();
+
+        // khai báo 1 function  dạng Arrow function:
+        let arrow = () => {
+            console.log("hàm arrow function");
+        }
+        // gọi hàm
+        arrow();
+
+        // khai báo 1 function  dạng IIFE:
+        (function(){
+            console.log("function IIFE");
+        })();
+    </script>
+</body>
+</html>

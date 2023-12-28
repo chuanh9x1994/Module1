@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+            Callback: là 1 hàm được truyền làm tham số của hàm khác.
+     -->
+     <script>
+        // chạy 1111 trước, cho setTimeout vào hàng chờ, chạy 3333 xong sẽ chạy setTimeout. ( cơ chế bất đồng bộ)
+        // console.log("11111");
+        // setTimeout(() => {
+        //     console.log("22222");
+        // }, 1000); // đơn vị ms
+        // console.log("33333");
+
+        let sdt;
+        function xinSodt(callback11) {
+            console.log("chung gọi cho kiên xin số Vân Anh");
+            console.log("Kiên bảo đợi 1 tý.");
+            setTimeout(() => {
+                console.log("đã tìm thấy số");
+                sdt=12345;
+                callback11(sdt);
+            }, 5000 );
+        }
+        function khiCoSoVanAnhMoiGoi(sdtVanAnh){
+            console.log("gọi cho vân anh theo số",sdtVanAnh);
+        }
+        xinSodt(khiCoSoVanAnhMoiGoi);
+     </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+            dequy: hàm tự gọi lại chính nó .
+     -->
+     <script>
+        // tính giai thừa của 5.
+        let tich=1;
+        for(let i=1 ; i<=5 ; i++){
+            tich*=i;
+        }
+        console.log(tich);
+
+        // dùng đệ quy tính giai thừa của 5.
+        function giaiThua(a){
+            if(a==2){
+                return;
+            }
+            return a* giaiThua(a-1)
+        }
+        console.log(giaiThua(4));
+     </script>
+</body>
+</html>

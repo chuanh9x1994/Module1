@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Hàm tái sử dụng nhờ vào THAM SỐ và ĐỐI SỐ - rất quan trọng.
+            ĐỐI SỐ: là khi gọi hàm rồi truyền cho nó giá trị.
+            THAM SỐ : khi đặt biến nhân giá trị về.
+     -->
+     <script>
+        function sayHello(name,name2){
+            console.log(`xin chào ${name}`);
+            console.log(`xin chào ${name2}`);
+
+        }
+        sayHello("hoa");
+        sayHello("hoa","hồng"); // vẫn ra hoa, muốn hiển thị hồng phải khai báo thêm tham số. (name,name2), hiển thị theo thứ tự
+        sayHello();
+
+        // tính tổng từ 1 đến 10.
+        function tinhTong(a,b){
+            let total=0;
+            for(let i = a ; i<=b ; i++){
+                total+=i;
+            }
+            console.log(total);
+        }
+        tinhTong(1,10);
+     </script>
+</body>
+</html>
