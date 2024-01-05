@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 1</title>
+</head>
+<body>
+    <script>
+        let int = prompt("mời bạn nhập số có 5 chữ số: ");
+        let arr = int.split('').map(Number);      // map(Number) để chuyển các phần tử trong mảng thành số.
+        console.log(arr);
+        let arrTest=[];
+        let count={};
+        for(let i = 0 ; i < arr.length ; i++){
+            let number=arr[i];
+            count[number] = (count[number] || 0) + 1;       // thêm thuộc tính "number" vào object "count" với giá trị "(count[number] || 0) + 1"
+        }                                                   // nếu chưa có thì thêm và giá trị = 0+1 ; nếu có rồi thì giá trị = count[number] + 1.
+
+        for(let i = 0 ; i<arr.length ; i++){                // vòng for này để kiểm tra các số xuất hiện 1 lần và push vào mảng mới.
+            let number = arr[i];
+            if(count[number] === 1){
+                arrTest.push(number);
+            }
+        }
+        console.log(arrTest);
+        let maxInt = arrTest[0];
+        for(let i = 1; i<arrTest.length ; i++){             // tìm số lớn nhất.
+            if(arrTest[i] > maxInt){
+                maxInt = arrTest[i];
+            }
+        }
+        console.log("số lớn nhất là : ", maxInt);
+    </script>
+</body>
+</html>
