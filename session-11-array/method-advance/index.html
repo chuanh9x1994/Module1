@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+            Các phương thức làm việc với mảng:
+                - Giúp code nhanh, gọn gàng.
+                    => Bản chất dùng for có thể xử lý hết các vấn đề nhưng sẽ dài dòng hơn.
+                - Khi học cái hàm này thì nhớ :    
+                    1. Đầu vào
+                    2. Đầu ra (kết quả trả về).
+            I. filter (lọc):
+                - kết quả trả về là 1 mảng.
+                    + nếu thỏa mãn điều kiện thì mảng chứa phần tử 
+                    + nếu ko thỏa mãn thì mảng rỗng.
+                    + trả về 1 mảng mới.
+            II. map: 
+                - tạo ra mảng mới
+                - số lượng phần tử trong mảng = số lượng phần tử mảng ban đầu.
+            III. forEach: 
+                - không tạo ra mảng mới.
+                - không nhận return.
+                - tương tác trực tiếp với các phần tử mảng ban đầu.
+            IV. find: 
+                - tìm kiếm phần tử thỏa mãn điều kiện và trả về phần tử đó.
+                - nếu không tìm thấy sẽ trả về undefined
+            V. findIndex: 
+                - tìm kiếm phần tử thỏa mãn điều kiện và trả về vị trí phần tử đó.
+                - nếu không tìm thấy trả về -1.
+            VI. some:
+                - trả về true nếu 1 phần tử thỏa mãn điều kiện, ko sẽ trả về false
+            VII. every:
+                - trả về true nếu tất cả phần tử thỏa mãn điều kiện.
+            VIII. reduce : dùng để tính toán.
+                - 
+            ...
+     -->
+
+    <script>
+        // VD : 
+        let numbers = [5, 6, 8, 7, 9, 1];
+        // yc lọc những phần tử lớn hơn 5.
+        let arr = [];
+        for (let i = 0; i < numbers.length; i++) {
+            if (numbers[i] > 5) {
+                arr.push(numbers[i])
+            }
+        }
+        console.log(arr);
+
+        // sử dụng filter.
+        // let result=numbers.filter(function(item,index,array){
+        //     return item>5;
+        // })
+        // console.log(result);
+        // // hoặc viết như thế này cũng như nhau
+        // let result1=numbers.filter((item,index,array) => {
+
+        // })
+
+        // sử dụng map.
+        // let result=numbers.map((item,index,arr)=>{
+        //     return item>5;
+        // })
+        // console.log(result); // kết quả trả về 1 mảng gồm các phần tử true , false.
+
+        // sử dụng forEach
+        // let result=numbers.forEach((item,index,arr)=>{
+        //     numbers[index]=item*2;
+        // })
+        // console.log(result);
+
+        // sử dụng find
+        // let student = [{
+        //         name: "hoa",
+        //         id: 1,
+        //         age: 25
+        //     },
+        //     {
+        //         name: "hồng",
+        //         id: 31,
+        //         age:30
+        //     }
+        // ]
+        // let result=student.some((item,index,value)=>{
+        //     return item.age >29;
+        // })
+        // console.log(result);
+
+        // reduce.
+        let numbers2 = [5, 8, 7, 4, 6, 8]; // tính tổng
+        let result=numbers2.reduce((accumulator, itemValue , index)=>{ // accumulator : biến tích lũy, itemValue : giá trị phần tử, index : vị trí phần tử.
+            return accumulator+itemValue;
+        },0) // 0 là giá trị khởi tạo cho biến tích lũy. nếu ko gán giá trị thì accumulator mặc định sẽ lấy phần tử đầu tiên làm giá trị.
+        console.log(result);
+    </script>
+</body>
+
+</html>

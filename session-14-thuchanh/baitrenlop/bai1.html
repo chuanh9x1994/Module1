@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="input" placeholder="nhập tên sp: ">
+    <button onclick="addToCard()"> mua </button>
+    <script>
+        let store = [["pc", 5000], ["banh mi", 2000], ["ao", 3000]];
+        let cart = [];
+        function addToCard() {
+            console.log("đi mua hàng");
+            // lấy giá trị ô input người dùng nhập vào.
+            let inputValue = document.getElementById("input").value;
+            console.log(inputValue);
+            /* 
+                - kiểm tra xem trong cửa hàng có tồn tại sp người dùng nhập vào hay ko.
+                - nếu có thì cho đi mua:
+                    Kiểm tra xem sp có trong giỏ hàng hay ko.
+                    Nếu có rồi thì tăng số lượng. nếu không push vào bình thường.
+                - nếu ko có, báo ko có sản phẩm.
+            */
+            let productIndex = -1;
+            for (let i = 0; i < store.length; i++) {
+                if (store[i][0] === inputValue) {
+                    productIndex = i;
+                    break;
+                }
+            }
+
+            if (productIndex === -1) {
+                console.log("Sản phẩm không tồn tại trong cửa hàng.");
+            } else {
+                // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
+                let cartIndex = -1;
+                for (let i = 0; i < cart.length; i++) {
+                    if (cart[i][0] === inputValue) {
+                        cartIndex = i;
+                        break;
+                    }
+                }
+
+                if (cartIndex === -1) {
+                    // Nếu sản phẩm chưa có trong giỏ hàng, thêm vào giỏ hàng với số lượng là 1
+                    cart.push([inputValue, store[productIndex][1], 1]);
+                } else {
+                    // Nếu sản phẩm đã có trong giỏ hàng, tăng số lượng lên 1
+                    cart[cartIndex][2]++;
+                }
+
+                console.log("Đã thêm sản phẩm vào giỏ hàng.");
+                console.log(cart);
+            }
+        }
+    </script>
+</body>
+
+</html>

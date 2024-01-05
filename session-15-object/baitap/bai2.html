@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+</head>
+
+<body>
+    <!-- 
+                yêu cầu: 
+                    1. đi mua hàng tồi tính giá tiền phải trả khi mua: 
+                        - kiểm tra xem sản phẩm nhập vào có trong cửa hàng hay ko.
+                            nếu ko có báo ko có.
+                            nếu có tiếp tục mua:
+                        - kiểm tra trong giỏ hàng đã có sản phẩm hay chưa
+                            nếu có thì tăng số lượng lên 1
+                            nếu chưa có thì thêm vào giỏ hàng.
+                            tính giá tiền phải trả.
+     -->
+
+    <input type="text" id="input" placeholder="nhập tên sp: ">
+    <button onclick="addToCard()"> mua </button>
+    <script>
+        let products = [
+            {
+                name: "iphone5",
+                price: 50000,
+                id: 5
+            },
+            {
+                name: "iphone6",
+                price: 60000,
+                id: 6
+            },
+            {
+                name: "iphone7",
+                price: 70000,
+                id: 7
+            },
+            {
+                name: "iphone8",
+                price: 80000,
+                id: 8
+            }
+        ]
+        let cart = [];
+        function addToCard() {
+            let inputValue = document.getElementById("input").value;
+            console.log("tôi cần mua",inputValue);
+
+            let productIndex = -1;
+            for (let i = 0; i < products.length; i++) {
+                if (products[i].name === inputValue) {
+                    productIndex = i;
+                    break;
+                }
+            }
+            
+            if (productIndex === -1) {
+                console.log("sản phẩm bạn nhập ko có trong của hàng");
+            } else {
+                let cartIndex = -1;
+                for (let i = 0; i < cart.length; i++) {
+                    if (cart[i].name === inputValue) {
+                        cartIndex = i;
+                        break;
+                    }
+                }
+
+                if (cartIndex === -1) {
+                    cart.push(products[productIndex]);
+                    let result=cart.findIndex((item,index,value)=>{
+                        return item.name == inputValue;
+                    })
+                    cart[result].sLg = 1;
+                } else {
+                    cart[cartIndex].sLg++;
+                }
+                console.log(cart);
+                let sum=cart.reduce((accumulator, itemValue, index) => {
+                    return accumulator+itemValue.price*itemValue.sLg;
+                },0)
+                console.log("tổng tiền: ",sum);
+            }
+        }
+    </script>
+</body>
+
+</html>

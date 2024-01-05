@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+            object : hay gọi là đối tượng.
+                - thuộc kiểu dữ liệu tham chiếu - kiểu dữ liệu phức tạp - reference type
+            a. Các cách khởi tạo đối tượng
+                1. 
+                    let studens={};
+                2. 
+                    let studens = new Object();
+                3. dùng hàm tạo contructor.
+                4. dùng Class
+
+            lập trình hướng đối tượng OOP:
+                1. đóng gói.
+                2. đa hình.
+                3. trừu tượng.
+                4. kế thừa.
+            CRUD với object.
+            1. C - Create : thêm.
+            2. R - Read - đọc
+            3. U - Update - cập nhật
+            4. D - Delete - xóa
+
+     -->
+
+     <script>
+        // khởi tạo đối tượng sinh viên
+        // cách 1
+        // let studens={};
+        
+        // // cách 2
+        // let studens = new Object();
+
+        // cách 3
+        // let studens={
+        //     name:"hoa",
+        //     age:25,
+        //     id:5
+        // // }    // name, age, id ... là thuộc tính - property
+        // function Student(name,age,id){
+        //     this.name=name;
+        //     this.age=age;
+        //     this.id=id;
+        // }
+        // let studens1=new Student("hoa",25,5);
+        // let studens2=new Student("hồng",27,3);
+
+        // Create
+        let studens={
+            name:"hoa",
+            age:25,
+            id:5
+        }
+        // thêm thuộc tính add
+        // studens.add="HN"; 
+        // studens["add"]="HN";
+        // console.log(studens);
+
+        // in ra 
+        // for(const a in studens){     
+        //     console.log(a);    //trả về và hiện ra các thuộc tính. 
+        //     console.log(studens[a]);    // trả về giá trị của các thuộc tính.
+        // }
+
+        // cập nhật
+        // studens.name="hồng";
+        // console.log(studens);
+
+        // Xóa
+        delete studens.name;
+        console.log(studens);
+     </script>
+</body>
+</html>
