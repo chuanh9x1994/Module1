@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .title {
+            background-color: red;
+        }
+        .title2{
+            color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        arttribute   :
+        muốn tương tác với thuộc tính, cần phải lấy elememt ra rồi mới tương tác được.
+        - thuộc tính classList trong đối tượng : là danh sách tất cả những class của element.
+        - các phương thức dùng trong classList:
+            1. add : thêm class vào trong đối tượng : 
+            2. remove :  xóa class.
+            3. toggle (giống công tắc) : có class thì xóa, không có thì thêm vào.
+            4. contains : kiểm tra xem đối tượng có class đó hay ko, kết quả trả về true - false
+
+        setAttribute : thêm thuộc tính.
+
+    -->
+
+    <div>
+        abcdef
+    </div>
+
+    <div class="title title2">
+        kjasndjhaskj
+    </div>
+    <button onclick="abc">dsfdsf</button>
+
+    <script>
+        let elememt = document.getElementsByTagName("div");     // gọi element ra => 1 mảng
+        elememt[0].className = "title";                           // gọi phần tử trong mảng ra, gán class "title" cho nó.
+
+        let elememt2 = document.getElementsByTagName("div");     // gọi element ra => 1 mảng
+        elememt2[0].classList.add("title");                          // thêm class
+
+        let elememt3 = document.getElementsByTagName("div");     // gọi element ra => 1 mảng
+        // elememt3[0].classList.remove("title2");                    // xóa class
+
+        let elememt4 = document.getElementsByTagName("div");     // gọi element ra => 1 mảng
+        function abc() {
+            elememt4[0].classList.toggle("title2");
+        }
+
+        elememt[0].setAttribute("class","title1 title2");           // thêm thuộc tính class
+
+        
+    </script>
+</body>
+
+</html>

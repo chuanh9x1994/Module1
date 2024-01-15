@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <p> This is a Text. This is a Text. This is a Text </p>
+    <button onclick="hide()">Hide text</button>
+    <button onclick="show()">Show text</button>
+
+    <script>
+        let elememt = document.getElementsByTagName("p")[0];
+        function hide(){
+            if(elememt.classList.contains("hide") == false){
+                elememt.classList.add("hide");
+            }
+            
+        }
+        function show(){
+            if(elememt.classList.contains("hide") == true){
+                elememt.classList.remove("hide")
+            }
+        }
+    </script>
+</body>
+</html>

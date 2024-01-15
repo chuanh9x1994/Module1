@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        thực hiện làm đăng ký, đăng nhập lưu ở local-storage.
+             tạo 1 mảng lưu thông tin đăng ký.
+             xác định khi đk tk có bao nhiêu trường : 
+            userName: 
+            email: 
+            passWord:
+            comfirmPassword: 
+             đăng ký xong tự động chuyển sang trang đăng nhập : 
+                window.localtion.href="./dangnhap.html"
+                lấy dữ liệu từ local về, so sánh tk và mk nhập vào, nếu đúng chuyển sang trang home.html
+                nếu sai báo sai.
+     -->
+     <h1>form đăng ký</h1>
+     <input type="text" id="userName" placeholder="mời nhập tên đăng nhập"> <br><br>
+     <input type="text" id="email" placeholder="mời nhập email"><br><br>
+     <input type="text" id="passWord" placeholder="mời nhập password"><br><br>
+     <input type="text" id="comfPassWord" placeholder="xác nhận lại password"><br><br>
+     <button onclick="dangKy()">Đăng ký</button>
+     <button onclick="dangNhap()">Đăng nhập</button>
+     
+     <script>
+        let users = JSON.parse(localStorage.getItem("user")) || [];
+
+        function dangKy() {
+            let tenDn = document.getElementById("userName").value;
+            let eml = document.getElementById("email").value;
+            let pass = document.getElementById("passWord").value;
+            let comfPass = document.getElementById("comfPassWord").value;
+            let user = {
+                userName: tenDn,
+                email: eml,
+                passWord: pass,
+            }   
+
+            if(pass != comfPass){
+                console.log("vui lòng xác nhận lại mật khẩu");
+                return
+            }
+            let checkTenDn = -1;
+            for(let i = 0 ; i< users.length ; i++){
+                if(tenDn == users[i].userName){
+                    checkTenDn = 1;
+                    break;
+                }
+            }
+
+            if(checkTenDn == -1){
+                users.push(user);
+                localStorage.setItem("user",JSON.stringify(users));
+                window.location.href="./dn.html";    
+            } else {
+                console.log("tên đăng nhập đã tồn tại, vui lòng thử lại.");
+            }
+            console.log(users);
+        }
+
+        function dangNhap() {
+            window.location.href="./dangnhap.html";
+        }
+     </script>
+</body>
+</html>

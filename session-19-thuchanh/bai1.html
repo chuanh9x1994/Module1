@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 1</title>
+</head>
+
+<body>
+    <div>
+        <h1>Thông tin học viên</h1>
+        <label for="name">Họ và tên</label>
+        <input type="text" id="name" placeholder="vui lòng nhập tên" required><br><br>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="vui lòng nhập email"><br><br>
+
+        <label for="phone">Số điện thoại</label>
+        <input type="number" id="phone" placeholder="vui lòng nhập sđt"><br><br>
+
+        <label for="address">Quê quán</label>
+        <input type="text" id="address" placeholder="vui lòng nhập địa chỉ" required><br><br>
+
+        <label>Giới tính</label>
+        <input type="radio" id="Nam" value="Nam" name="gender" checked>
+        <label>Nam</label>
+        <input type="radio" id="Nu" value="Nữ" name="gender">
+        <label>Nữ</label><br><br>
+
+        <button onclick="addDs()">Lưu lại</button>
+    </div>
+
+    <div>
+        <div>
+            <h1>Danh sách học viên</h1>
+
+            <label for="search">Tìm kiếm tên học viên: </label>
+            <input type="text" name="" id="search">
+            <button onclick="search()">search</button>
+        </div>
+
+        <div>
+            <table border="1" cellpadding="10" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Họ tên</th>
+                        <th>Email</th>
+                        <th>Điện thoại</th>
+                        <th>Địa chỉ</th>
+                        <th>Gender</th>
+                        <th>Hành động</th>
+                        <th><button onclick="sapXep()">Sắp xếp (alpha b)</button></th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+
+                </tbody>
+                <tfoot>
+
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <script>
+
+        // hàm tạo id ngẫu nhiên.
+        function uuid() {
+            return Math.floor(Math.random() * 9999) + new Date().getMilliseconds();
+        }
+
+        // lấy dữ liệu mảng user trên local về
+        let students = JSON.parse(localStorage.getItem("users")) || [];
+
+        let check = -1;
+        // hàm lưu thông tin student.
+        function addDs() {
+            let hoTen = document.getElementById("name").value;
+            let eMal = document.getElementById("email").value;
+            let soDT = document.getElementById("phone").value;
+            let queQuan = document.getElementById("address").value;
+            let gioiTinh = document.getElementsByName("gender");
+            let gioiTinhValue = "";
+            for (let i = 0; i < gioiTinh.length; i++) {
+                if (gioiTinh.item(i).checked) {
+                    gioiTinhValue = gioiTinh.item(i).value;
+                }
+            }
+
+            // Tạo đối tượng sinh viên.
+            let sTDent = {
+                name: hoTen,
+                email: eMal,
+                phone: soDT,
+                address: queQuan,
+                gender: gioiTinhValue,
+                id: uuid(),
+            }
+
+            // kiểm tra xem khi bấm lưu sẽ thêm sv mới hay cập nhật
+            if (check == -1) {
+                students.push(sTDent);
+                // sau khi push vào xong, thì lưu dữ liệu trên local lại.
+                localStorage.setItem("users", JSON.stringify(students));
+
+                // sau khi lưu dữ liệu xong thì gọi làm render.
+                render();
+            } else {
+                let index = students.findIndex((item) => {
+                    return item.id == check;
+                })
+                students.splice(index, 1, sTDent);
+                render();
+            }
+        }
+
+        // Tạo hàm render
+        function render() {
+            let elm = "";
+            for (let i = 0; i < students.length; i++) {
+                elm += `
+                            <tr>
+                                <td>${i + 1}</td>
+                                <td>${students[i].name}</td>
+                                <td>${students[i].email}</td>
+                                <td>${students[i].phone}</td>
+                                <td>${students[i].address}</td>
+                                <td>${students[i].gender}</td>
+                                <td>
+                                    <span onclick="edit(${students[i].id})">edit</span> <span> | </span> <span onclick="del(${students[i].id})">delete</span>
+                                </td>
+                                <td></td>
+                            </tr>
+                        `
+            }
+            document.getElementById("tbody").innerHTML = elm;
+        }
+        render();
+
+        // tạo hàm xóa
+        function del(id) {
+            // tìm vị trí phần tử  muốn xóa
+            let index = students.findIndex((item) => {
+                return item.id == id;
+            })
+            students.splice(index, 1)
+            render();
+        }
+
+        // tạo hàm edit
+        function edit(id) {
+            // tìm vị trí phần tử cập nhật
+            let index = students.findIndex((item) => {
+                return item.id == id;
+            })
+            document.getElementById("name").value = students[index].name;
+            document.getElementById("email").value = students[index].email;
+            document.getElementById("phone").value = students[index].phone;
+            document.getElementById("address").value = students[index].address;
+            if (students[index].gender == "Nam") {
+                document.getElementById("Nam").checked = true;
+            } else if (students[index].gender == "Nữ") {
+                document.getElementById("Nu").checked = true;
+            }
+            check = id;
+        }
+
+        // sắp xếp theo tên.
+        function soSanhTheoTen(a, b) {
+
+            let tenA = a.name.toUpperCase();
+            let tenB = b.name.toUpperCase();
+
+            if (tenA < tenB) {
+                return -1;
+            } else if (tenA > tenB) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+
+        function sapXep() {
+            students.sort(soSanhTheoTen);
+            render();
+        }
+
+        // tìm kiếm học viên
+        function search() {
+            console.log("asadsadas");
+            let timSinhVien = [];
+            let timTen = document.getElementById("search").value;
+            let checkTen = -1;
+            for(let i = 0 ; i < students.length ; i++){
+                if(students[i].name === timTen){
+                    checkTen = i;
+                    timSinhVien.push(students[i]);
+                }
+            }
+            if(checkTen == -1){
+                console.log("không có sinh viên nào.");
+            }
+            console.log(timSinhVien);
+
+            function renderSearch() {
+            let elm = "";
+            for (let i = 0; i < timSinhVien.length; i++) {
+                elm += `
+                            <tr>
+                                <td>${i + 1}</td>
+                                <td>${timSinhVien[i].name}</td>
+                                <td>${timSinhVien[i].email}</td>
+                                <td>${timSinhVien[i].phone}</td>
+                                <td>${timSinhVien[i].address}</td>
+                                <td>${timSinhVien[i].gender}</td>
+                                <td>
+                                    <span onclick="edit(${timSinhVien[i].id})">edit</span> <span> | </span> <span onclick="del(${timSinhVien[i].id})">delete</span>
+                                </td>
+                                <td></td>
+                            </tr>
+                        `
+            }
+            document.getElementById("tbody").innerHTML = elm;
+        }
+        renderSearch();
+        }
+    </script>
+</body>
+
+</html>

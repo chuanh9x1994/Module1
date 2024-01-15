@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+</head>
+<body>
+    <h1> ĐĂNG NHẬP </h1>
+    <input type="text" id="ten" placeholder="nhập tài khoản"><br><br>
+    <input type="text" id="mKhau" placeholder="nhập mật khẩu"><br><br>
+    <button onclick="dNhap()">ĐĂNG NHẬP</button>
+    <button onclick="dKy()">ĐĂNG KÝ TK MỚI</button>
+
+    <script>
+        function dNhap() {
+            let tKhoan = document.getElementById("ten").value;
+            let matKhau = document.getElementById("mKhau").value;
+            let listUsers = JSON.parse(localStorage.getItem("user")) || []; 
+            // nếu listUsers ko có dữ liệu thì nó là Null, dẫn đến vòng for ko chạy được, ko sử dụng đc Null.lengtth, nên phải để hoặc 1 mảng.
+
+            for(let i = 0 ; i < listUsers.length ; i++){
+                let a = listUsers[i].userName;
+                let b = listUsers[i].passWord;
+                if(tKhoan == a && matKhau == b){
+                    window.location.href="./home.html";
+                }else{
+                    console.log("sai tài khoản hoặc mật khẩu, vui lòng nhập lại.");
+                }
+            }
+        }
+
+        function dKy(){
+            window.location.href="./dangky.html";
+        }
+    </script>
+</body>
+</html>
